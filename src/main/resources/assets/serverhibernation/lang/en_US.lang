@@ -1,0 +1,2 @@
+serverhibernation.conf.enabled=Enable
+serverhibernation.conf.enabled.tooltip=Enable server hibernation

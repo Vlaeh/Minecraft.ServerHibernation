@@ -1,0 +1,59 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Eclipse stuff
+.classpath
+.project
+.settings
+*.launch
+
+# NetBeans
+nbproject
+.nb-gradle*
+build.xml
+nbbuild
+
+# Idea stuff 
+/.idea
+*.iml
+
+# Various IDEs like to add child .gitignore files
+**/.gitignore
+
+# vim
+.*.sw[a-p]
+
+# Emacs
+*~
+
+
+# various other potential build files
+target
+build
+.gradle
+bin
+dist
+out
+localexport.jardesc
+forgeInfo
+run/
