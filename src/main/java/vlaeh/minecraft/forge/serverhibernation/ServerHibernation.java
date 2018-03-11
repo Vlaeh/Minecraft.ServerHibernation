@@ -11,7 +11,6 @@ import net.minecraftforge.fml.common.event.FMLServerStartedEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.event.FMLServerStoppingEvent;
 import net.minecraftforge.fml.relauncher.Side;
-
 import vlaeh.minecraft.forge.serverhibernation.commands.ServerHibernationCommand;
 
 @Mod(modid = ServerHibernation.MODID, 
@@ -23,13 +22,13 @@ import vlaeh.minecraft.forge.serverhibernation.commands.ServerHibernationCommand
 public class ServerHibernation 
 {
     public static final String MODID = "serverhibernation";
-    public static final String VERSION = "1.0";
+    public static final String VERSION = "1.1";
     public static final String NAME = "Server Hibernation";
 	
     public static Configuration config;
     public static boolean hibernationEnabled = true;
     
-    @SidedProxy(serverSide = "vlaeh.minecraft.forge.serverhibernation.CommonProxy", clientSide = "vlaeh.minecraft.forge.serverhibernation.CommonProxy")
+    @SidedProxy(serverSide = "vlaeh.minecraft.forge.serverhibernation.server.ServerProxy", clientSide = "vlaeh.minecraft.forge.serverhibernation.CommonProxy")
     public static CommonProxy proxy;
     
     @SidedProxy(serverSide = "vlaeh.minecraft.forge.serverhibernation.server.I18nServer", clientSide = "vlaeh.minecraft.forge.serverhibernation.client.I18nClient")
