@@ -24,35 +24,33 @@ public class ServerHibernation
     public static final String MODID = "serverhibernation";
     public static final String VERSION = "1.1";
     public static final String NAME = "Server Hibernation";
-	
+
     public static Configuration config;
     public static boolean hibernationEnabled = true;
-    
+
     @SidedProxy(serverSide = "vlaeh.minecraft.forge.serverhibernation.server.ServerProxy", clientSide = "vlaeh.minecraft.forge.serverhibernation.CommonProxy")
     public static CommonProxy proxy;
-    
+
     @SidedProxy(serverSide = "vlaeh.minecraft.forge.serverhibernation.server.I18nServer", clientSide = "vlaeh.minecraft.forge.serverhibernation.client.I18nClient")
     public static I18nProxy i18n;
-    
+
     @Mod.Instance
     public static ServerHibernation instance;
-    
+
     @EventHandler
     public void preInit(final FMLPreInitializationEvent event) {
-    	config = new Configuration(event.getSuggestedConfigurationFile());
-    	syncConfig();
-   	}
-    
-    @EventHandler
-    public void postInit(FMLPostInitializationEvent event)
-    {
-    	proxy.postInit(event);
+        config = new Configuration(event.getSuggestedConfigurationFile());
+        syncConfig();
     }
-    
+
     @EventHandler
-    public void serverLoad(FMLServerStartingEvent event)
-    {
-    	event.registerServerCommand(new ServerHibernationCommand());
+    public void postInit(FMLPostInitializationEvent event) {
+        proxy.postInit(event);
+    }
+
+    @EventHandler
+    public void serverLoad(FMLServerStartingEvent event) {
+        event.registerServerCommand(new ServerHibernationCommand());
     }
 
     @EventHandler
@@ -65,12 +63,13 @@ public class ServerHibernation
         proxy.onFMLServerStoppingEvent(event);
     }
 
-	public static void syncConfig() {
-	    if (FMLCommonHandler.instance().getSide() == Side.SERVER)
-	    	i18n.load(config.getString("serverLang", Configuration.CATEGORY_GENERAL, "en_US", "Server language"));
-		hibernationEnabled = config.getBoolean("1.enabled", Configuration.CATEGORY_GENERAL, hibernationEnabled, "serverhibernation.conf.enabled.tooltip", "serverhibernation.conf.enabled");
-	    if(config.hasChanged())
-	      config.save();
-	}
+    public static void syncConfig() {
+        if (FMLCommonHandler.instance().getSide() == Side.SERVER)
+            i18n.load(config.getString("serverLang", Configuration.CATEGORY_GENERAL, "en_US", "Server language"));
+        hibernationEnabled = config.getBoolean("1.enabled", Configuration.CATEGORY_GENERAL, hibernationEnabled,
+                "serverhibernation.conf.enabled.tooltip", "serverhibernation.conf.enabled");
+        if (config.hasChanged())
+            config.save();
+    }
 
 }

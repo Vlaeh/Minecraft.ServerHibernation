@@ -38,16 +38,16 @@ public class ServerProxy extends CommonProxy {
         final MinecraftServer server = FMLServerHandler.instance().getServer();
         if (server == null)
             return;
-        LOGGER.info((ServerHibernation.hibernationEnabled ? "enabled" : "disabled")
-                + ": server started " + getStatus(server));
+        LOGGER.info((ServerHibernation.hibernationEnabled ? "enabled" : "disabled") + ": server started "
+                + getStatus(server));
         startHibernation(server);
     }
 
     @Override
     public void onFMLServerStoppingEvent(final FMLServerStoppingEvent event) {
         final MinecraftServer server = FMLServerHandler.instance().getServer();
-        LOGGER.info((ServerHibernation.hibernationEnabled ? "enabled" : "disabled")
-                + ": server stopping " + getStatus(server));
+        LOGGER.info((ServerHibernation.hibernationEnabled ? "enabled" : "disabled") + ": server stopping "
+                + getStatus(server));
         stopHibernation(server);
     }
 
@@ -162,8 +162,7 @@ public class ServerProxy extends CommonProxy {
                 + ", randomTickSpeed=" + TextFormatting.GREEN
                 + server.worldServerForDimension(0).getGameRules().getString("randomTickSpeed") + TextFormatting.RESET
                 + ", doFireTick=" + TextFormatting.GREEN
-                + server.worldServerForDimension(0).getGameRules().getString("doFireTick") + TextFormatting.RESET
-                + "]";
+                + server.worldServerForDimension(0).getGameRules().getString("doFireTick") + TextFormatting.RESET + "]";
     }
 
     public String getSavedStatus() {
